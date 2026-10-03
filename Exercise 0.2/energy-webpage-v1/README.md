@@ -63,7 +63,7 @@ energy-webpage-v1
 ├── index.html
 └── README.md
 
-## Generative AI Reflection
+## Generative AI Reflections
 
 - **Which tool(s) you used:** Gemini
 - **What you used GenAI for:** Scaffolding the multi-page HTML semantic layout, establishing consistent CSS color variables matching the PowerIcon logo, and generating the baseline client-side JavaScript validation and calculator logic.
