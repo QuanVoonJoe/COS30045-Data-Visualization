@@ -3,81 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Appliance Energy Consumption - Televisions</title>
+  <title>Appliance Energy Consumption - Televisions &amp; Calculator</title>
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="js/scripts.js"></script>
 </head>
 <body>
 
   <header>
-    <nav class="navbar">
-      <a href="index.html" class="nav-brand">
+    <div class="navbar">
+      <a href="index.html" class="nav-brand" title="Return to Home">
         <img src="images/PowerIcon.png" alt="Power Logo" class="brand-logo">
-        <span class="brand-title">EnergyScope</span>
+        <div class="brand-text">
+          <span class="title">Appliance<span>Watt</span></span>
+          <span class="subtitle">AU Energy Efficiency Guide</span>
+        </div>
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="televisions.html" class="active">Televisions</a></li>
+        <li><a href="televisions.html" class="active">Televisions &amp; Calculator</a></li>
         <li><a href="about.html">About Us</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
   <main class="container">
-    <section class="hero-section">
-      <h1>Television Power Profiles</h1>
-      <p class="lead">Exploring energy benchmarks across television display technologies and screen dimensions.</p>
-    </section>
+    <span class="badge">JavaScript Extension • Client-Side Computation</span>
+    <h1 style="font-size:2.2rem; font-weight:800; margin-bottom: 0.5rem;">Television Power Consumption &amp; Calculator</h1>
+    <p style="color:var(--color-brown); margin-bottom: 2rem;">Compare typical television display configurations and calculate your exact electricity cost and environmental impact below.</p>
 
-    <section class="content-card">
-      <h2>Display Technology Comparison</h2>
-      <p>Modern television power consumption depends directly on display panel technology, backlight methods, HDR processing, and screen size. Larger screen diagonals require higher power delivery across panel surfaces.</p>
-      
-      <div class="table-wrapper">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Display Panel Type</th>
-              <th>Typical Screen Size</th>
-              <th>Avg Active Watts</th>
-              <th>Annual Est. (kWh)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Edge-Lit LED</td>
-              <td>50" - 55"</td>
-              <td>65W - 85W</td>
-              <td>110 - 150 kWh</td>
-            </tr>
-            <tr>
-              <td>Mini-LED / Full Array</td>
-              <td>65"</td>
-              <td>120W - 170W</td>
-              <td>210 - 300 kWh</td>
-            </tr>
-            <tr>
-              <td>OLED Panel</td>
-              <td>65"</td>
-              <td>110W - 160W</td>
-              <td>200 - 280 kWh</td>
-            </tr>
-            <tr>
-              <td>Large OLED / QLED</td>
-              <td>75" - 85"</td>
-              <td>180W - 260W</td>
-              <td>320 - 460 kWh</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- TV Display Presets Reference Cards -->
+    <div class="grid-3" style="margin-bottom: 2.5rem;">
+      <div class="grid-card">
+        <span style="font-size:0.7rem; font-weight:700; color:var(--color-darkamber); text-transform:uppercase;">Entry Display</span>
+        <h3 style="margin-top:0.35rem;">43" LED Display</h3>
+        <p>Average draw: ~50W – 70W. Highly economical for bedrooms and smaller spaces.</p>
       </div>
-    </section>
+      <div class="grid-card">
+        <span style="font-size:0.7rem; font-weight:700; color:var(--color-darkamber); text-transform:uppercase;">Living Room Standard</span>
+        <h3 style="margin-top:0.35rem;">55" OLED Display</h3>
+        <p>Average draw: ~100W – 130W. Emits deep blacks at near-zero power, higher on HDR.</p>
+      </div>
+      <div class="grid-card">
+        <span style="font-size:0.7rem; font-weight:700; color:var(--color-darkamber); text-transform:uppercase;">Flagship Cinema</span>
+        <h3 style="margin-top:0.35rem;">75" QLED / Mini-LED</h3>
+        <p>Average draw: ~190W – 250W. High sustained peak brightness for daytime rooms.</p>
+      </div>
+    </div>
+
+    <!-- Interactive Calculator (Extension Challenge) -->
+    <div class="calculator-box">
+      <div class="calculator-header">
+        <div class="calc-icon">⚡</div>
+        <div>
+          <h2 style="font-size:1.4rem; font-weight:800;">Interactive Appliance Energy Calculator</h2>
+          <p style="font-size:0.85rem; color:var(--color-brown);">Calculate consumption and running costs compliant with Australian energy benchmarks.</p>
+        </div>
+      </div>
+
+      <div class="calc-layout">
+        <!-- Input Form -->
+        <form id="calculatorForm" novalidate>
+          <div class="form-group">
+            <label for="tvPreset">1. Appliance Model / Preset</label>
+            <select id="tvPreset">
+              <option value="43led" selected>43" Full HD/4K LED TV (60 Watts)</option>
+              <option value="55oled">55" 4K OLED TV (115 Watts)</option>
+              <option value="65uhd">65" 4K UHD LED TV (150 Watts)</option>
+              <option value="75qled">75" Neo QLED / Mini-LED (210 Watts)</option>
+              <option value="custom">-- Custom Wattage Entry --</option>
+            </select>
+            <span class="field-msg">Pick a preset to autofill or select custom.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="powerWatts">2. Power Rating (Watts)</label>
+            <input type="number" id="powerWatts" value="60" min="1" max="10000" required>
+            <span class="field-error" id="powerError">Please enter a valid wattage between 1 and 10,000 W.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="hoursPerDay">3. Daily Usage (Hours)</label>
+            <input type="number" id="hoursPerDay" value="4.5" min="0.1" max="24" step="0.5" required>
+            <span class="field-msg">AU daily average viewing: 3 to 5 hours/day.</span>
+            <span class="field-error" id="hoursError">Usage must be between 0.1 and 24 hours.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="electricityTariff">4. Tariff Rate (Cents per kWh)</label>
+            <input type="number" id="electricityTariff" value="31.5" min="1" max="200" step="0.1" required>
+            <span class="field-msg">Default 31.5¢/kWh matches 2024–2026 retail averages.</span>
+            <span class="field-error" id="tariffError">Tariff must be a positive number.</span>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn-primary" style="flex:1;">Calculate Now</button>
+            <button type="button" id="btnReset" class="btn-reset">Reset</button>
+          </div>
+        </form>
+
+        <!-- Dynamic Results Panel -->
+        <div class="results-card">
+          <div>
+            <div class="results-badge-bar">
+              <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-brown);">Consumption Breakdown</span>
+              <span class="live-pill">Live Client-Side Result</span>
+            </div>
+
+            <div class="metrics-row">
+              <div class="metric-highlight">
+                <span class="label">Yearly Electricity Cost</span>
+                <div class="value" id="resultYearlyCost">$31.04</div>
+                <span style="font-size:0.7rem; color:var(--color-brown);" id="resultDailyCost">approx. $0.09 / day</span>
+              </div>
+              <div class="metric-highlight alt">
+                <span class="label">Yearly Energy Draw</span>
+                <div class="value" id="resultYearlyKwh">98.55</div>
+                <span style="font-size:0.7rem; color:var(--color-brown);" id="resultDailyKwh">Daily: 0.27 kWh</span>
+              </div>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Timeframe</th>
+                  <th>Energy</th>
+                  <th>Cost ($AUD)</th>
+                  <th>CO₂e Emissions*</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Daily</strong></td>
+                  <td id="tableDailyKwh">0.27 kWh</td>
+                  <td id="tableDailyCost">$0.09</td>
+                  <td id="tableDailyCo2">0.20 kg</td>
+                </tr>
+                <tr>
+                  <td><strong>Monthly (30d)</strong></td>
+                  <td id="tableMonthlyKwh">8.10 kWh</td>
+                  <td id="tableMonthlyCost">$2.55</td>
+                  <td id="tableMonthlyCo2">6.08 kg</td>
+                </tr>
+                <tr>
+                  <td><strong>Annual (365d)</strong></td>
+                  <td id="tableYearlyKwh" style="font-weight:700;">98.55 kWh</td>
+                  <td id="tableYearlyCost" style="font-weight:700; color:var(--color-darkamber);">$31.04</td>
+                  <td id="tableYearlyCo2">73.91 kg</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="footnote">
+            *CO₂ calculated using National Greenhouse Accounts (NGA) factor of <strong>0.75 kg CO₂-e / kWh</strong> (Australian grid baseline).
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <div class="footer-container">
-      <p>&copy; 2026 Joe Quan Voon. All rights reserved.</p>
-      <p class="genai-disclaimer"><em>Generative AI acknowledgement: Code structure and initial calculations scaffolded using Gemini.</em></p>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Appliance Energy Consumption</div>
+        <p>&copy; <span id="currentYear">2026</span> Joe Quan Voon. All rights reserved. Built for COS30045 Exercise 0.2.</p>
+      </div>
+      <div class="genai-box">
+        <span class="genai-title">Generative AI Acknowledgement</span>
+        <p>Scaffolded using Gemini for semantic HTML markup, mathematical formula structure, and accessible DOM control.</p>
+      </div>
     </div>
   </footer>
 

@@ -10,42 +10,80 @@
 <body>
 
   <header>
-    <nav class="navbar">
-      <a href="index.html" class="nav-brand">
+    <div class="navbar">
+      <a href="index.html" class="nav-brand" title="Return to Home">
         <img src="images/PowerIcon.png" alt="Power Logo" class="brand-logo">
-        <span class="brand-title">EnergyScope</span>
+        <div class="brand-text">
+          <span class="title">Appliance<span>Watt</span></span>
+          <span class="subtitle">AU Energy Efficiency Guide</span>
+        </div>
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="televisions.html">Televisions</a></li>
+        <li><a href="televisions.html">Televisions &amp; Calculator</a></li>
         <li><a href="about.html" class="active">About Us</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
   <main class="container">
-    <section class="hero-section">
-      <h1>About This Project</h1>
-      <p class="lead">Developed as part of the COS30045 Data Visualization foundation exercises.</p>
-    </section>
+    <span class="badge">Exercise 0.2 • Project Overview</span>
+    <h1 style="font-size:2.2rem; font-weight:800; margin-bottom: 0.5rem;">About the Appliance Energy Website</h1>
+    <p style="color:var(--color-brown); max-width:800px; margin-bottom: 2.5rem;">This educational platform was developed for <strong>Exercise 0.2 (Build Appliance Energy Consumption Website)</strong> at Swinburne University of Technology. It demonstrates foundational multi-page web development using semantic HTML, structured CSS, and vanilla client-side JavaScript.</p>
 
-    <section class="content-card">
-      <h2>Project Objectives</h2>
-      <p>This portal demonstrates standard web development architecture using semantic HTML5, clean modular CSS, and vanilla client-side JavaScript. It serves as the baseline frontend platform for upcoming D3.js and tabular energy dataset visualisations.</p>
-      
-      <h2>Technical Standards</h2>
-      <ul>
-        <li>Responsive multi-page layout with external CSS styling[cite: 17, 18].</li>
-        <li>Accessible accordion user interface with ARIA attribute updates.</li>
-        <li>Client-side form input parsing and validation logic without external dependencies[cite: 20, 21].</li>
-      </ul>
-    </section>
+    <div class="calc-layout" style="margin-bottom: 3rem;">
+      <div class="grid-card" style="background:var(--bg-pale);">
+        <h3 style="font-size:1.15rem; margin-bottom:0.75rem;">Unit Learning Objectives</h3>
+        <p>In this unit, students learn how to engineer web-based data visualisations hosted on Swinburne's Mercury Apache server:</p>
+        <ul style="padding-left:1.25rem; font-size:0.85rem; line-height:1.8; color:var(--color-dark);">
+          <li>Structure a simple multi-page website using semantic HTML</li>
+          <li>Apply consistent styling across all pages via external CSS</li>
+          <li>Implement client-side interactivity using pure vanilla JS</li>
+          <li>Commit regular, meaningful progress to a GitHub repository</li>
+          <li>Reflect critically on Generative AI workflow integrations</li>
+        </ul>
+      </div>
+
+      <div class="grid-card">
+        <h3 style="font-size:1.15rem; margin-bottom:0.75rem;">Author &amp; Environment Details</h3>
+        <div style="font-size:0.85rem; line-height:2.2;">
+          <div><strong>Student Author:</strong> Joe Quan Voon</div>
+          <div><strong>Unit Code:</strong> COS30045 Data Visualization</div>
+          <div><strong>Hosting Target:</strong> Swinburne Mercury Apache Server</div>
+          <div><strong>Directory:</strong> <code>Exercise 0.2/energy-webpage-v1/</code></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid var(--color-border); padding-top: 2rem;">
+      <h3 style="font-size:1.2rem; font-weight:800; margin-bottom:1rem;">Official Data References</h3>
+      <div class="grid-3">
+        <div class="grid-card">
+          <span style="font-weight:700; color:var(--color-dark);">Energy Rating Australia</span>
+          <p style="margin-top:0.4rem;">Equipment Energy Efficiency (E3) Program regulating Minimum Energy Performance Standards (MEPS) for televisions and consumer appliances.</p>
+        </div>
+        <div class="grid-card">
+          <span style="font-weight:700; color:var(--color-dark);">DCCEEW National Factors</span>
+          <p style="margin-top:0.4rem;">Department of Climate Change, Energy, the Environment and Water. National Greenhouse Accounts Factors (Table 1: Indirect grid emission benchmarks).</p>
+        </div>
+        <div class="grid-card">
+          <span style="font-weight:700; color:var(--color-dark);">AER Default Market Offer</span>
+          <p style="margin-top:0.4rem;">Australian Energy Regulator benchmark reports indicating standard retail electricity tariffs across eastern states.</p>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <div class="footer-container">
-      <p>&copy; 2026 Joe Quan Voon. All rights reserved.</p>
-      <p class="genai-disclaimer"><em>Generative AI acknowledgement: Code structure and initial calculations scaffolded using Gemini.</em></p>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Appliance Energy Consumption</div>
+        <p>&copy; <span id="currentYear">2026</span> Joe Quan Voon. All rights reserved. Built for COS30045 Exercise 0.2.</p>
+      </div>
+      <div class="genai-box">
+        <span class="genai-title">Generative AI Acknowledgement</span>
+        <p>Scaffolded using Gemini for semantic HTML markup, mathematical formula structure, and accessible DOM control.</p>
+      </div>
     </div>
   </footer>
 
