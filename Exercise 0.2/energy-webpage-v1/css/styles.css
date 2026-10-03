@@ -1,0 +1,341 @@
+/* Color Palette & Global Variables */
+:root {
+  --color-primary: #e59819;
+  --color-primary-light: #fbe69b;
+  --color-accent: #f5c84c;
+  --color-dark: #3a2e1d;
+  --color-body-text: #2f2a24;
+  --color-bg: #fdfbf7;
+  --color-card-bg: #ffffff;
+  --color-border: #e8dec8;
+  --color-error: #c92a2a;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-body-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Bar */
+header {
+  background-color: var(--color-card-bg);
+  border-bottom: 2px solid var(--color-primary-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--color-dark);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.nav-brand:hover .brand-logo {
+  transform: scale(1.08) rotate(5deg);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-dark);
+  font-weight: 500;
+  padding: 0.5rem 0.85rem;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+/* Nav Mouse-over (hover) Effect & Active Indicator */
+.nav-links a:hover {
+  background-color: var(--color-primary-light);
+  color: #111;
+}
+
+.nav-links a.active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Layout Container */
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  flex: 1;
+  width: 100%;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.hero-section h1 {
+  font-size: 2.25rem;
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: #665b4f;
+}
+
+/* Card Styling */
+.content-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.content-card h2 {
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--color-primary-light);
+  padding-bottom: 0.4rem;
+}
+
+/* Calculator Form */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(229, 152, 25, 0.2);
+  outline: none;
+}
+
+.form-group input.input-error {
+  border-color: var(--color-error);
+}
+
+.field-error {
+  color: var(--color-error);
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  min-height: 1.2rem;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #cb8412;
+}
+
+/* Calculator Dynamic Results Panel */
+.results-panel {
+  margin-top: 1.75rem;
+  background-color: #fffdf5;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.results-panel h3 {
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+}
+
+.result-label {
+  font-size: 0.85rem;
+  color: #776a5a;
+}
+
+.result-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-top: 0.25rem;
+}
+
+/* Accordion (FAQ Section) */
+.accordion {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  background-color: #faf7f0;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.accordion-header:hover {
+  background-color: var(--color-primary-light);
+}
+
+.accordion-header .chevron {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active .chevron {
+  transform: rotate(180deg);
+}
+
+/* FAQ Hidden by Default */
+.accordion-content {
+  display: none;
+  padding: 1.25rem;
+  background-color: #ffffff;
+}
+
+.accordion-content p {
+  color: #443c33;
+}
+
+/* Televisions Data Table */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table th, .data-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.data-table th {
+  background-color: #faf7f0;
+  color: var(--color-dark);
+}
+
+.data-table tbody tr:hover {
+  background-color: #fffdf5;
+}
+
+/* Footer Present On All Pages */
+footer {
+  background-color: var(--color-card-bg);
+  border-top: 1px solid var(--color-border);
+  padding: 1.5rem;
+  margin-top: auto;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b6357;
+}
+
+.footer-container p {
+  margin-bottom: 0.35rem;
+}
+
+.genai-disclaimer {
+  font-size: 0.8rem;
+  color: #8c8273;
+}

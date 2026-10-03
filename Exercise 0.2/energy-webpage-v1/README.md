@@ -63,3 +63,10 @@ energy-webpage-v1
 ├── index.html
 └── README.md
 
+## Generative AI Reflection
+
+- **Which tool(s) you used:** Gemini
+- **What you used GenAI for:** Scaffolding the multi-page HTML semantic layout, establishing consistent CSS color variables matching the PowerIcon logo, and generating the baseline client-side JavaScript validation and calculator logic.
+- **What you changed or adapted after generation:** Refined the CSS grid responsiveness, tailored the form validation boundaries (0.1 - 24 hours), and ensured strict path routing across the Exercise 0.2 file structure.
+- **What you learned from using GenAI:** How event listeners interact with ARIA states for accessible accordions and how to compute client-side kilowatt-hour and cost projections cleanly without external libraries.
+- **Any limitations or issues you encountered:** Needed to manually verify relative paths (`css/styles.css` vs `../styles.css`) and ensure all naming adhered to the prescribed project directory tree.
