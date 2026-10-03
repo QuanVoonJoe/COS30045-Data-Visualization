@@ -155,4 +155,3 @@ function initCalculator() {
   // Run initial calculation on load
   calculate();
 }
-/**/
