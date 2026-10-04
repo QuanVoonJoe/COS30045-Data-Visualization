@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appliance Energy Consumption - Televisions &amp; Calculator</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/scripts.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="nav-brand" title="Return to Home">
+        <img src="images/PowerIcon.png" alt="Power Logo" class="brand-logo">
+        <div class="brand-text">
+          <span class="title">Appliance<span>Watt</span></span>
+          <span class="subtitle">AU Energy Efficiency Guide</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="televisions.html" class="active">Televisions &amp; Calculator</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- ==============================================
+         DATA STORY SECTION (Chapters 1, 2, 3)
+    =============================================== -->
+    <div class="hero-section hero-alt">
+      <span class="badge">Data Story • Australian Living Room Energy Benchmark</span>
+      <h1 class="page-title">The Hidden Running Cost of Living Room Screens</h1>
+      <p class="page-subtitle">
+        Televisions are central fixtures in Australian homes, with modern households steadily upsizing to 65-inch and 85-inch screens. Using official regulatory data from <strong>Energy Rating Australia (4,724 tested models)</strong>, this data story examines how screen size and display technologies shape electricity bills and grid demand.
+      </p>
+    </div>
+
+    <!-- Chapter 1: Screen Size vs Energy Draw -->
+    <section class="content-card">
+      <h2 class="section-heading">1. Screen Size: The Primary Energy Driver</h2>
+      <p class="section-desc">
+        Using KNIME analytics to categorize active Australian TV registrations into Small (<44"), Medium (44–65"), and Large (>65") categories, the data reveals significant jumps in nominal annual consumption.
+      </p>
+      <div class="chart-container">
+        <img src="images/chart_screensize_energy.png" class="chart-img" alt="Average Annual TV Energy Consumption by Screen Size">
+      </div>
+      <div class="insight-card">
+        <h4 class="insight-title">Key Narrative Insight</h4>
+        <p class="insight-text">
+          A large television consumes an average of <strong>~750 kWh/year</strong>, representing an enormous increase over a standard small unit (<strong>~150 kWh/year</strong>). Over a 5-year ownership period, stepping up to a massive display incurs hundreds of dollars in additional electricity bills alone.
+        </p>
+      </div>
+    </section>
+
+    <!-- Chapter 2: Screen Tech vs Size Category -->
+    <section class="content-card">
+      <h2 class="section-heading">2. Screen Technology: OLED vs. LED vs. LCD</h2>
+      <p class="section-desc">
+        Does the type of panel matter? Grouping the data by panel technology—LCD, LCD (LED), and OLED—across our size categories reveals that technology impacts energy draw, but its effect scales dramatically with the size of the television.
+      </p>
+      <div class="chart-container">
+        <img src="images/chart_tech_energy.png" class="chart-img" alt="Screen Tech Energy Consumption per Size Category">
+      </div>
+      <div class="insight-card">
+        <h4 class="insight-title">The Technology Premium</h4>
+        <p class="insight-text">
+          While medium-sized TVs show similar energy consumption across all technologies (averaging ~400 kWh/year), the extremes expose wider gaps. In <strong>Large formats</strong>, high-brightness LCD (LED) and OLED models consume noticeably more energy than standard LCDs. Conversely, in <strong>Small formats</strong>, OLED screens draw significantly more power (~230 kWh/year) than standard LED models (~160 kWh/year), highlighting the premium energy cost of self-illuminating pixels.
+        </p>
+      </div>
+    </section>
+
+    <!-- Chapter 3: Practical Recommendations -->
+    <section class="content-card">
+      <h2 class="section-heading">3. Consumer Buying Recommendations</h2>
+      <div class="grid-3">
+        <div class="grid-card">
+          <span class="grid-subtitle">Size Appropriately</span>
+          <h4 class="grid-title">Room Proportions</h4>
+          <p class="grid-desc">For viewing distances under 2.5 meters, choosing a medium display over a large model reduces power usage heavily without compromising immersion.</p>
+        </div>
+        <div class="grid-card">
+          <span class="grid-subtitle">Tech Considerations</span>
+          <h4 class="grid-title">OLED vs LED</h4>
+          <p class="grid-desc">If buying a small bedroom TV, standard LEDs are much more efficient than OLEDs. For home theaters, budget for the higher running costs of premium OLED/Mini-LEDs.</p>
+        </div>
+        <div class="grid-card">
+          <span class="grid-subtitle">Control Standby</span>
+          <h4 class="grid-title">Disable Fast Wake</h4>
+          <p class="grid-desc">Turning off "Quick Start" or active networked standby modes saves an additional $30 to $50 AUD per year in phantom power drain across all tech types.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         INTERACTIVE CALCULATOR SECTION
+    =============================================== -->
+    <section class="border-top-section" style="margin-top: 4rem;">
+      <div class="hero-alt">
+        <span class="badge">Interactive Tool</span>
+        <h2 class="page-title">Calculate Your Custom Usage</h2>
+        <p class="page-subtitle">Test how your specific viewing habits impact your energy bills based on the insights above.</p>
+      </div>
+
+      <div class="calculator-box">
+        <div class="calculator-header">
+          <div class="calc-icon">⚡</div>
+          <div>
+            <h3 style="font-size:1.3rem; font-weight:800;">TV Cost Estimator</h3>
+            <p style="font-size:0.85rem; color:var(--color-brown);">Vanilla JS implementation computing daily, monthly, and yearly impact.</p>
+          </div>
+        </div>
+
+        <div class="calc-layout">
+          <!-- Input Form -->
+          <form id="calculatorForm">
+            <div class="form-group">
+              <label for="tvPreset">Quick Select Preset</label>
+              <select id="tvPreset">
+                <option value="43led">Small LED / LCD (~60W)</option>
+                <option value="55oled">Medium OLED (~115W)</option>
+                <option value="65uhd">Large LED (~150W)</option>
+                <option value="75qled">Large Premium OLED/QLED (~210W)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="powerWatts">Custom Power Consumption (Watts)</label>
+              <input type="number" id="powerWatts" value="60" min="1" step="0.1">
+              <span class="field-msg">Check the back label or spec sheet.</span>
+              <span class="field-error" id="powerError">Please enter a valid wattage.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="hoursPerDay">Daily Usage (Hours)</label>
+              <input type="number" id="hoursPerDay" value="4.5" min="0.1" max="24" step="0.5">
+              <span class="field-msg">Average Australian viewing time is 4.5 hrs.</span>
+              <span class="field-error" id="hoursError">Please enter valid hours (0-24).</span>
+            </div>
+
+            <div class="form-group">
+              <label for="electricityTariff">Electricity Tariff (¢/kWh)</label>
+              <input type="number" id="electricityTariff" value="31.5" min="1" step="0.1">
+              <span class="field-msg">National default is ~31.5 cents.</span>
+              <span class="field-error" id="tariffError">Please enter a valid tariff.</span>
+            </div>
+
+            <div class="btn-group">
+              <button type="submit" class="btn-primary" style="width:100%; border-radius:10px;">Calculate Costs</button>
+              <button type="button" class="btn-reset" id="btnReset">Reset</button>
+            </div>
+          </form>
+
+          <!-- Results Panel -->
+          <div class="results-card">
+            <div class="results-badge-bar">
+              <span style="font-weight:700; color:var(--color-dark); font-size:0.9rem;">Estimated Impact</span>
+              <span class="live-pill">Live Calculation</span>
+            </div>
+
+            <div class="metrics-row">
+              <div class="metric-highlight">
+                <span class="label">Yearly Running Cost</span>
+                <span class="value" id="resultYearlyCost">$0.00</span>
+                <span class="label" id="resultDailyCost" style="margin-top:0.25rem;">approx. $0.00 / day</span>
+              </div>
+              <div class="metric-highlight alt">
+                <span class="label">Yearly Consumption</span>
+                <span class="value" id="resultYearlyKwh">0.00</span>
+                <span class="label" style="display:inline-block; margin-top:0.25rem;">kWh</span>
+                <span class="label" id="resultDailyKwh" style="margin-top:0.25rem;">Daily: 0.00 kWh</span>
+              </div>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Period</th>
+                  <th>Energy (kWh)</th>
+                  <th>Cost (AUD)</th>
+                  <th>Est. CO₂</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Daily</strong></td>
+                  <td id="tableDailyKwh">0.00 kWh</td>
+                  <td id="tableDailyCost">$0.00</td>
+                  <td id="tableDailyCo2">0.00 kg</td>
+                </tr>
+                <tr>
+                  <td><strong>Monthly</strong></td>
+                  <td id="tableMonthlyKwh">0.00 kWh</td>
+                  <td id="tableMonthlyCost">$0.00</td>
+                  <td id="tableMonthlyCo2">0.00 kg</td>
+                </tr>
+                <tr>
+                  <td><strong>Yearly</strong></td>
+                  <td id="tableYearlyKwh">0.00 kWh</td>
+                  <td id="tableYearlyCost"><strong>$0.00</strong></td>
+                  <td id="tableYearlyCo2">0.00 kg</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="footnote">
+              *Calculations are estimates. CO₂ footprint assumes national grid average of 0.75kg CO₂-e per kWh.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Appliance Energy Consumption</div>
+        <p>&copy; <span id="currentYear">2026</span> Voon Joe Quan. All rights reserved. Built for COS30045 Exercise 0.2 & 0.3.</p>
+      </div>
+      <div class="genai-box">
+        <span class="genai-title">Generative AI Acknowledgement</span>
+        <p>Scaffolded using Gemini for semantic HTML markup, mathematical formula structure, and accessible DOM control.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
