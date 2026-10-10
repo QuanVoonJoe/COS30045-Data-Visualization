@@ -23,30 +23,56 @@ d3.csv("data/tvBrandCount.csv", d => {
   drawBarChart(data);
 });
 
-// Function to build the chart using scales
+// Function to build the chart using scales and groups
 const drawBarChart = data => {
-  // Step 1: Linear scale for the x-axis (counts)
+  // Linear scale for the x-axis (counts)
   const xScale = d3.scaleLinear()
     .domain([0, 1100])
     .range([0, 800]);
 
-  // Step 2: Band scale for the y-axis (categories / brands)
+  // Band scale for the y-axis (categories / brands)
   const yScale = d3.scaleBand()
     .domain(data.map(d => d.brand))
     .range([0, 550])
     .padding(0.1);
 
-  // Bind data and draw the scaled bars
-  svg
-    .selectAll("rect")
+  // Step 2: Create a group container for bars and labels
+  const barAndLabel = svg
+    .selectAll("g")
     .data(data)
-    .join("rect")
-    // Use xScale so max counts fit nicely within the viewBox width
+    .join("g")
+    // Transform moves the entire group down to the correct y-position
+    .attr("transform", d => `translate(0, ${yScale(d.brand)})`);
+
+  // Step 3: Add back the rectangles (now inside the group)
+  barAndLabel
+    .append("rect")
     .attr("width", d => xScale(d.count))
-    // Use yScale bandwidth for clean, automatic bar thickness
     .attr("height", yScale.bandwidth())
     .attr("fill", "blue")
-    .attr("x", 0)
-    // Use yScale mapped to each brand name for precise vertical stacking
-    .attr("y", d => yScale(d.brand));
+    // Step 1: Shift bars 100px to the right to make room for text
+    .attr("x", 100)
+    // y is 0 because the group's transform already handles vertical position
+    .attr("y", 0);
+
+  // Step 4: Add the column category text (brand names)
+  barAndLabel
+    .append("text")
+    .text(d => d.brand)
+    // Position just left of the bars (90px)
+    .attr("x", 90) 
+    // Roughly center text vertically based on bar height
+    .attr("y", 15) 
+    // Right-align the text so it sits flush against the bars
+    .attr("text-anchor", "end") 
+    .style("font-size", "13px");
+
+  // Step 5: Add the value number at the end of the bar
+  barAndLabel
+    .append("text")
+    .text(d => d.count)
+    // Position right after the bar: 100 (start) + bar width + 4 (padding gap)
+    .attr("x", d => 100 + xScale(d.count) + 4)
+    .attr("y", 15) 
+    .style("font-size", "13px");
 };
