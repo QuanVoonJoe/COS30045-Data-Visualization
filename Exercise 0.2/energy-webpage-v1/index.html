@@ -6,7 +6,6 @@
   <title>Appliance Energy Consumption - Home</title>
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="js/scripts.js"></script>
-  <script defer src="js/main.js"></script>
   <script defer src="js/bar-chart.js"></script>
   <!-- Load the D3 js library -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -24,8 +23,9 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="televisions.html">Televisions &amp; Calculator</a></li>
+        <li><a href="market-data.html" class="active">Market Data</a></li>
         <li><a href="about.html">About Us</a></li>
       </ul>
     </div>
@@ -79,21 +79,6 @@
       </div>
     </div>
   </section>
-
-  <!-- NEW: D3 Chart Section -->
-  <div class="results-card" style="margin-bottom: 4rem;">
-      
-    <!-- Moved the header INSIDE the card -->
-    <div class="section-header" style="margin-bottom: 1.5rem;">
-      <span class="badge">Market Data</span>
-      <h2>Top 10 TV Brands in Australia</h2>
-      <p>Interactive visualization of television model availability sorted by volume.</p>
-    </div>
-
-    <!-- The D3 Chart Container -->
-    <div class="responsive-svg-container"></div>
-      
-  </div>
 
   <!-- Content 3-Card Grid -->
   <main class="container">
