@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appliance Energy Consumption - Screen &amp; Market Analysis</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- 1. LOAD D3 FIRST -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- 2. LOAD BOTH CHART SCRIPTS -->
+  <script defer src="js/bar-chart.js"></script>
+  <script defer src="js/line-chart.js"></script>
+  <script defer src="js/scripts.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="nav-brand" title="Return to Home">
+        <img src="images/PowerIcon.png" alt="Power Logo" class="brand-logo">
+        <div class="brand-text">
+          <span class="title">Appliance<span>Watt</span></span>
+          <span class="subtitle">AU Energy Efficiency Guide</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="televisions.html">Televisions &amp; Calculator</a></li>
+        <li><a href="market-data.html">Market Data</a></li>
+        <li><a href="screen-analysis.html" class="active">Screen Analysis</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="container" style="padding-top: 3rem;">
+    
+    <!-- Chart 1: Screen Technology vs. Energy Drain (Vertical Bar Chart) -->
+    <div class="results-card" style="max-width: 850px; margin: 0 auto 4rem auto;">
+      <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
+        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Screen Analysis</span>
+        <h2>Screen Technology vs. Energy Drain</h2>
+        <p>Average energy consumption (kWh) for 55-inch televisions.</p>
+      </div>
+      <div id="bar-chart" class="responsive-svg-container"></div>
+    </div>
+
+    <!-- Chart 2: Australian Electricity Spot Prices (Scatter Plot & Line Chart) -->
+    <div class="results-card" style="max-width: 850px; margin: 0 auto;">
+      <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
+        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Exercise 5.2</span>
+        <h2>Australian Electricity Spot Prices (1998–2024)</h2>
+        <p>Average cost per megawatt-hour (MWh) of electricity across Australia over a 27-year period.</p>
+      </div>
+      <!-- Unique container ID for the line chart -->
+      <div id="line-chart" class="responsive-svg-container"></div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Appliance Energy Consumption</div>
+        <p>&copy; <span id="currentYear">2026</span> Voon Joe Quan. All rights reserved. Built for COS30045 Exercise 5.2.</p>
+      </div>
+      <div class="genai-box">
+        <span class="genai-title">Generative AI Acknowledgement</span>
+        <p>Scaffolded using Gemini for semantic HTML markup, mathematical formula structure, and accessible DOM control.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
