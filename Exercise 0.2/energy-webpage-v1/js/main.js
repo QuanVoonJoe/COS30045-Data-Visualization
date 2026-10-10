@@ -1,17 +1,12 @@
-// Selects the main heading and changes its color
-d3.select("h1")
-  .style("color", "green");
+const svg = d3.select(".responsive-svg-container")
+  .append("svg")
+  .attr("viewBox", "0 0 1200 1600")
+  .style("border", "1px solid black");
 
-// Appends a new paragraph with specific text to our target container
-d3.select("#d3-container")
-  .append("p")
-  .text("Purchasing a low energy consumption TV will help with your energy bills!");
-  
-// Appends a rectangle to the SVG canvas and assigns position, size, and color attributes so it is visible
-d3.select("#d3-svg")
+svg
   .append("rect")
-  .attr("x", 50)
-  .attr("y", 50)
-  .attr("width", 100)
-  .attr("height", 30)
-  .style("fill", "green");
+  .attr("x", 10)
+  .attr("y", 10)
+  .attr("width", 414)
+  .attr("height", 16)
+  .attr("fill", "blue");
