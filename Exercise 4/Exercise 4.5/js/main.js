@@ -6,10 +6,10 @@ const svg = d3.select(".responsive-svg-container")
 
 // Read the CSV data
 d3.csv("data/tvBrandCount.csv", d => {
-  // Row conversion function: matches KNIME's exact column headers
+  // Row conversion function: ensures counts are treated as numbers
   return {
-    brand: d.Brand_Reg,          // Matches KNIME's 'Brand_Reg' column
-    count: +d["Count(SoldIn)"]   // Matches KNIME's 'Count(SoldIn)' column
+    brand: d.brand,
+    count: +d.count
   };
 }).then(data => {
   // Check the data in the browser console
@@ -21,7 +21,7 @@ d3.csv("data/tvBrandCount.csv", d => {
   // Sort the data in descending order
   data.sort((a, b) => b.count - a.count);
   
-  // Pass the formatted data to the chart drawing function
+  // Pass the formatted data to the chart drawing function (to be built next)
   drawBarChart(data);
 });
 
