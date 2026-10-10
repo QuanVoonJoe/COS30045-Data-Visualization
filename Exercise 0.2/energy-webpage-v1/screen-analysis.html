@@ -9,9 +9,10 @@
   <!-- 1. LOAD D3 FIRST -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
 
-  <!-- 2. LOAD BOTH CHART SCRIPTS -->
+  <!-- 2. LOAD ALL CHART SCRIPTS -->
   <script defer src="js/bar-chart.js"></script>
   <script defer src="js/line-chart.js"></script>
+  <script defer src="js/donut-chart.js"></script>
   <script defer src="js/scripts.js"></script>
 </head>
 <body>
@@ -39,25 +40,35 @@
   <!-- Main Content Container -->
   <main class="container" style="padding-top: 3rem;">
     
-    <!-- Chart 1: Screen Technology vs. Energy Drain (Vertical Bar Chart) -->
+    <!-- Chart 1: Vertical Bar Chart -->
     <div class="results-card" style="max-width: 850px; margin: 0 auto 4rem auto;">
       <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
-        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Bar Chart</span>
+        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Screen Analysis</span>
         <h2>Screen Technology vs. Energy Drain</h2>
         <p>Average energy consumption (kWh) for 55-inch televisions.</p>
       </div>
       <div id="bar-chart" class="responsive-svg-container"></div>
     </div>
 
-    <!-- Chart 2: Australian Electricity Spot Prices (Scatter Plot & Line Chart) -->
-    <div class="results-card" style="max-width: 850px; margin: 0 auto;">
+    <!-- Chart 2: Historical Line Chart -->
+    <div class="results-card" style="max-width: 850px; margin: 0 auto 4rem auto;">
       <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
-        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Line Chart</span>
+        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Exercise 5.2</span>
         <h2>Australian Electricity Spot Prices (1998–2024)</h2>
         <p>Average cost per megawatt-hour (MWh) of electricity across Australia over a 27-year period.</p>
       </div>
-      <!-- Unique container ID for the line chart -->
       <div id="line-chart" class="responsive-svg-container"></div>
+    </div>
+
+    <!-- Chart 3: Donut Chart (Exercise 5.3) -->
+    <div class="results-card" style="max-width: 850px; margin: 0 auto;">
+      <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
+        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Donut Chart</span>
+        <h2>Television Proportion by Screen Size Category</h2>
+        <p>Distribution of small, medium, and large television models in the dataset.</p>
+      </div>
+      <!-- Unique container ID for the donut chart -->
+      <div id="donut-chart" class="responsive-svg-container"></div>
     </div>
 
   </main>
@@ -67,7 +78,7 @@
     <div class="footer-inner">
       <div>
         <div class="footer-brand">Appliance Energy Consumption</div>
-        <p>&copy; <span id="currentYear">2026</span> Voon Joe Quan. All rights reserved. Built for COS30045 Exercise 5.2.</p>
+        <p>&copy; <span id="currentYear">2026</span> Voon Joe Quan. All rights reserved. Built for COS30045 Exercise 5.3.</p>
       </div>
       <div class="genai-box">
         <span class="genai-title">Generative AI Acknowledgement</span>

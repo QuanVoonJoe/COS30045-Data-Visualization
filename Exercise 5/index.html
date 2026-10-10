@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Appliance Energy Consumption - Home</title>
+  <title>Appliance Energy Consumption - Screen &amp; Market Analysis</title>
   <link rel="stylesheet" href="css/styles.css">
-  <script defer src="js/scripts.js"></script>
-  <script defer src="js/main.js"></script>
-  <script defer src="js/bar-chart.js"></script>
-  <!-- Load the D3 js library -->
+
+  <!-- 1. LOAD D3 FIRST -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- 2. LOAD ALL CHART SCRIPTS -->
+  <script defer src="js/bar-chart.js"></script>
+  <script defer src="js/line-chart.js"></script>
+  <script defer src="js/donut-chart.js"></script>
+  <script defer src="js/scripts.js"></script>
 </head>
 <body>
 
-  <!-- Navigation Bar (Present across all pages) -->
+  <!-- Navigation Bar -->
   <header>
     <div class="navbar">
       <a href="index.html" class="nav-brand" title="Return to Home">
@@ -24,164 +28,57 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="televisions.html">Televisions &amp; Calculator</a></li>
+        <li><a href="market-data.html">Market Data</a></li>
+        <li><a href="screen-analysis.html" class="active">Screen Analysis</a></li>
         <li><a href="about.html">About Us</a></li>
       </ul>
     </div>
   </header>
 
-  <!-- Hero Banner -->
-  <section class="hero-section">
-    <div class="hero-wrapper">
-      <div class="hero-left">
-        <span class="badge">National Energy Literacy • Australia</span>
-        <h1>Understanding Appliance Energy Consumption in Australia</h1>
-        <p>Household appliances account for over <strong>30% of Australian domestic electricity consumption</strong>. Discover how star ratings, standby draws, and smart appliance habits protect your budget and reduce emissions.</p>
-        <a href="televisions.html" class="btn-primary">Launch TV Energy Calculator &rarr;</a>
+  <!-- Main Content Container -->
+  <main class="container" style="padding-top: 3rem;">
+    
+    <!-- Chart 1: Vertical Bar Chart -->
+    <div class="results-card" style="max-width: 850px; margin: 0 auto 4rem auto;">
+      <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
+        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Screen Analysis</span>
+        <h2>Screen Technology vs. Energy Drain</h2>
+        <p>Average energy consumption (kWh) for 55-inch televisions.</p>
       </div>
-
-      <div class="hero-right">
-        <div class="snapshot-card">
-          <h3>Average Australian Snapshot</h3>
-          <div class="snapshot-headline">15 – 19 kWh / day</div>
-          <div class="snapshot-list">
-            <div class="snapshot-item">
-              <span class="snapshot-num">1</span>
-              <div>
-                <strong>Heating &amp; Cooling (~40%)</strong>
-                <p>Largest single energy consumer in Victoria &amp; NSW.</p>
-              </div>
-            </div>
-            <div class="snapshot-item">
-              <span class="snapshot-num">2</span>
-              <div>
-                <strong>Water Heating (~25%)</strong>
-                <p>Second largest residential consumer across mainland states.</p>
-              </div>
-            </div>
-            <div class="snapshot-item">
-              <span class="snapshot-num">3</span>
-              <div>
-                <strong>Appliances &amp; Electronics (~30%)</strong>
-                <p>Includes TVs, refrigerators, washers, and entertainment systems.</p>
-              </div>
-            </div>
-            <div class="snapshot-item">
-              <span class="snapshot-num">4</span>
-              <div>
-                <strong>Standby Power Drain (~10%)</strong>
-                <p>Devices in standby drain up to $100 AUD every year.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEW: D3 Chart Section -->
-  <div class="results-card" style="margin-bottom: 4rem;">
-      
-    <!-- Moved the header INSIDE the card -->
-    <div class="section-header" style="margin-bottom: 1.5rem;">
-      <span class="badge">Market Data</span>
-      <h2>Top 10 TV Brands in Australia</h2>
-      <p>Interactive visualization of television model availability sorted by volume.</p>
+      <div id="bar-chart" class="responsive-svg-container"></div>
     </div>
 
-    <!-- The D3 Chart Container -->
-    <div class="responsive-svg-container"></div>
-      
-  </div>
-
-  <!-- Content 3-Card Grid -->
-  <main class="container">
-    <div class="section-header">
-      <h2>Australia's Energy Rating Standards</h2>
-      <p>Administered under the Equipment Energy Efficiency (E3) Program, allowing consumers to compare running costs directly across appliances.</p>
+    <!-- Chart 2: Historical Line Chart -->
+    <div class="results-card" style="max-width: 850px; margin: 0 auto 4rem auto;">
+      <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
+        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Exercise 5.2</span>
+        <h2>Australian Electricity Spot Prices (1998–2024)</h2>
+        <p>Average cost per megawatt-hour (MWh) of electricity across Australia over a 27-year period.</p>
+      </div>
+      <div id="line-chart" class="responsive-svg-container"></div>
     </div>
 
-    <div class="grid-3">
-      <div class="grid-card">
-        <div class="grid-card-icon">★</div>
-        <h3>The Star Rating System</h3>
-        <p>Every extra star on a television or major appliance represents up to a <strong>20% reduction</strong> in power consumption compared to an equivalent lower-rated model.</p>
-        <span>Mandatory for TVs sold in AU &rarr;</span>
+    <!-- Chart 3: Donut Chart (Exercise 5.3) -->
+    <div class="results-card" style="max-width: 850px; margin: 0 auto;">
+      <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
+        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Exercise 5.3</span>
+        <h2>Television Proportion by Screen Size Category</h2>
+        <p>Distribution of small, medium, and large television models in the dataset.</p>
       </div>
-
-      <div class="grid-card">
-        <div class="grid-card-icon">$</div>
-        <h3>Australian Electricity Tariffs</h3>
-        <p>Residential electricity across Victoria, Queensland, and NSW typically ranges from <strong>28¢ to 38¢ per kWh</strong>. Choosing efficient models saves hundreds over time.</p>
-        <span>Default benchmark: 31.5¢/kWh &rarr;</span>
-      </div>
-
-      <div class="grid-card">
-        <div class="grid-card-icon">⚡</div>
-        <h3>Standby "Vampire" Draw</h3>
-        <p>Modern smart televisions with active networked wake-up modes draw 5W to 20W continuously when switched off, adding around $35 annually per household display.</p>
-        <span>Switching off at wall cuts drain &rarr;</span>
-      </div>
+      <!-- Unique container ID for the donut chart -->
+      <div id="donut-chart" class="responsive-svg-container"></div>
     </div>
+
   </main>
 
-  <div class="section-header">
-    <h2>Screen Technology vs. Energy Drain</h2>
-    <p>Average energy consumption (kWh) for 55-inch televisions.</p>
-  </div>
-  <!-- The specific ID required for Exercise 5.1 -->
-  <div id="bar-chart" class="responsive-svg-container" style="margin-bottom: 4rem;"></div>
-
-  <!-- FAQ Accordion (Hidden by default, pure JS interactivity) -->
-  <section class="accordion-wrapper">
-    <div class="accordion-container">
-      <div class="section-header">
-        <span class="badge">Interactive FAQ</span>
-        <h2>Frequently Asked Questions</h2>
-        <p>Click any question below to toggle details. Powered by vanilla JavaScript DOM control.</p>
-      </div>
-
-      <div class="faq-list">
-        <div class="faq-item">
-          <button type="button" class="faq-toggle" aria-expanded="false">
-            <span>What does the Energy Rating Label indicate in Australia?</span>
-            <span class="accordion-chevron">▼</span>
-          </button>
-          <div class="accordion-content">
-            <p>The Energy Rating Label gives an appliance a star rating between 1 and 10 stars (with 6 stars being the standard benchmark, and 7 to 10 for super-efficient appliances). It also lists the tested annual energy consumption in kilowatt-hours (kWh) so you can directly compare running costs.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button type="button" class="faq-toggle" aria-expanded="false">
-            <span>How is appliance power calculated into dollar costs?</span>
-            <span class="accordion-chevron">▼</span>
-          </button>
-          <div class="accordion-content">
-            <p>Divide the appliance wattage by 1,000 to convert to kilowatts (e.g. 100W = 0.1 kW). Multiply that by daily running hours to find daily kilowatt-hours (kWh). Then multiply by your retailer's electricity tariff in cents/kWh (e.g. 31.5¢ = $0.315 AUD).</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button type="button" class="faq-toggle" aria-expanded="false">
-            <span>Why do modern TVs consume noticeably different energy amounts?</span>
-            <span class="accordion-chevron">▼</span>
-          </button>
-          <div class="accordion-content">
-            <p>Panel technology, screen diagonal, and peak HDR brightness drastically alter power draw. Standard edge-lit LED screens use around 60W, while large 75" to 85" Mini-LED or high-luminance screens can exceed 220W during playback.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer (Present across all pages) -->
+  <!-- Footer -->
   <footer>
     <div class="footer-inner">
       <div>
         <div class="footer-brand">Appliance Energy Consumption</div>
-        <p>&copy; <span id="currentYear">2026</span> Voon Joe Quan. All rights reserved. Built for COS30045 Exercise 0.2.</p>
+        <p>&copy; <span id="currentYear">2026</span> Voon Joe Quan. All rights reserved. Built for COS30045 Exercise 5.3.</p>
       </div>
       <div class="genai-box">
         <span class="genai-title">Generative AI Acknowledgement</span>
