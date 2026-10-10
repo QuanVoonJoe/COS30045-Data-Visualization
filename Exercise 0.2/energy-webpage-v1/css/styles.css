@@ -120,9 +120,9 @@ header {
 
 /* Layout Container */
 .container {
-  max-width: 1200px;
+  max-width: 1350px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem;
+  padding: 2.5rem 2rem;
   flex: 1;
   width: 100%;
 }
@@ -677,4 +677,57 @@ footer {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   color: var(--color-brown);
+}
+
+/* --- Executive Dashboard Polish --- */
+.dashboard-grid-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 950px) {
+  .dashboard-grid-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard-card, .dashboard-card-full {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(43, 37, 32, 0.03);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover, .dashboard-card-full:hover {
+  border-color: var(--color-amber);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(217, 119, 6, 0.08);
+}
+
+.dashboard-card-full {
+  margin-bottom: 3.5rem;
+}
+
+.card-commentary {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--color-border);
+  font-size: 0.85rem;
+  color: var(--color-brown);
+  line-height: 1.6;
+}
+
+/* Ensure D3 SVG charts scale perfectly inside cards */
+.dashboard-card .responsive-svg-container,
+.dashboard-card-full .responsive-svg-container {
+  width: 100%;
+  height: auto;
+  margin: 0.5rem auto 0 auto;
 }

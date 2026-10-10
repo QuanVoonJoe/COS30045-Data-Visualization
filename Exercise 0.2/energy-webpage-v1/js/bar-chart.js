@@ -46,12 +46,12 @@ const drawVerticalBarChart = data => {
   // Y-Axis Title
   innerChart.append("text")
     .text("Energy Consumption (kWh)")
-    .attr("x", -margin.left + 15)
-    .attr("y", -20)
+    .attr("x", -margin.left + 10)
+    .attr("y", -22)
     .attr("text-anchor", "start")
-    .style("font-family", "Inter")
-    .style("font-size", "12px")
-    .style("font-weight", "600")
+    .style("font-family", "Inter, sans-serif")
+    .style("font-size", "13px")
+    .style("font-weight", "700")
     .style("fill", "#6E5842");
 
   // Step 4: Draw Animated Bars

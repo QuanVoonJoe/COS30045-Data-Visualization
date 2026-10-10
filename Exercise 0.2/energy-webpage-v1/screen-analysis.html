@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Appliance Energy Consumption - Screen &amp; Market Analysis</title>
+  <title>Appliance Energy Consumption - Executive D3 Dashboard</title>
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- 1. LOAD D3 FIRST -->
@@ -38,37 +38,70 @@
   </header>
 
   <!-- Main Content Container -->
-  <main class="container" style="padding-top: 3rem;">
+  <main class="container" style="padding-top: 3.5rem;">
     
-    <!-- Chart 1: Vertical Bar Chart -->
-    <div class="results-card" style="max-width: 850px; margin: 0 auto 4rem auto;">
-      <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
-        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Screen Analysis</span>
-        <h2>Screen Technology vs. Energy Drain</h2>
-        <p>Average energy consumption (kWh) for 55-inch televisions.</p>
-      </div>
-      <div id="bar-chart" class="responsive-svg-container"></div>
+    <!-- Dashboard Header Section -->
+    <div style="margin-bottom: 3rem; text-align: center; max-width: 750px; margin-left: auto; margin-right: auto;">
+      <span class="badge">Executive Analytics Suite</span>
+      <h1 style="font-size: 2.5rem; font-weight: 900; color: var(--color-dark); margin-bottom: 0.5rem; letter-spacing: -0.02em;">D3 Charts Dashboard</h1>
+      <p style="font-size: 1.15rem; font-weight: 700; color: var(--color-darkamber); margin-bottom: 0.75rem;">TV Energy Consumption &amp; Market Pricing Intelligence</p>
+      <p style="font-size: 0.95rem; color: var(--color-brown); line-height: 1.6;">Comprehensive telemetry exploring energy draw across display configurations, market size share distribution across Australia, and wholesale spot price volatility.</p>
     </div>
 
-    <!-- Chart 2: Historical Line Chart -->
-    <div class="results-card" style="max-width: 850px; margin: 0 auto 4rem auto;">
-      <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
-        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Exercise 5.2</span>
-        <h2>Australian Electricity Spot Prices (1998–2024)</h2>
-        <p>Average cost per megawatt-hour (MWh) of electricity across Australia over a 27-year period.</p>
+    <!-- TOP ROW: Two-Column Grid (Bar Chart & Donut Chart) -->
+    <div class="dashboard-grid-top">
+      
+      <!-- Card 1: Vertical Bar Chart -->
+      <div class="dashboard-card">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--color-dark);">55-inch TV Energy Consumption</h3>
+              <p style="font-size: 0.8rem; color: var(--color-brown);">Mean labelled energy consumption (kWh/year)</p>
+            </div>
+            <span style="font-size: 0.65rem; font-weight: 700; background: var(--bg-pale); color: var(--color-darkamber); padding: 0.25rem 0.5rem; border-radius: 6px; border: 1px solid var(--color-yellow);">Bar Chart</span>
+          </div>
+          <div id="bar-chart" class="responsive-svg-container"></div>
+        </div>
+        <div class="card-commentary">
+          <strong>Key Insight:</strong> Among 55-inch displays, LED models record the highest average draw at 369 kWh/year, closely followed by OLED at 362 kWh/year, while conventional LCD remains the most efficient option at 335 kWh/year.
+        </div>
       </div>
+
+      <!-- Card 2: Donut Chart -->
+      <div class="dashboard-card">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--color-dark);">Screen Size Market Share</h3>
+              <p style="font-size: 0.8rem; color: var(--color-brown);">Proportion of model categories in Australia</p>
+            </div>
+            <span style="font-size: 0.65rem; font-weight: 700; background: var(--bg-pale); color: var(--color-darkamber); padding: 0.25rem 0.5rem; border-radius: 6px; border: 1px solid var(--color-yellow);">Donut Chart</span>
+          </div>
+          <div id="donut-chart" class="responsive-svg-container"></div>
+        </div>
+        <div class="card-commentary">
+          <strong>Market Distribution:</strong> Medium-sized panels dominate the Australian retail landscape at 52.9% market share, trailed by large-screen cinematic models at 30.0% and compact small screens at 17.1%.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM ROW: Full-Width Card (Historical Line Chart) -->
+    <div class="dashboard-card-full">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+        <div>
+          <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--color-dark);">Australian Electricity Spot Prices (1998–2024)</h3>
+          <p style="font-size: 0.85rem; color: var(--color-brown);">Historical wholesale spot electricity pricing trends in dollars per megawatt-hour (MWh).</p>
+        </div>
+        <span style="font-size: 0.65rem; font-weight: 700; background: var(--bg-pale); color: var(--color-darkamber); padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid var(--color-yellow);">Line Chart</span>
+      </div>
+
       <div id="line-chart" class="responsive-svg-container"></div>
-    </div>
 
-    <!-- Chart 3: Donut Chart (Exercise 5.3) -->
-    <div class="results-card" style="max-width: 850px; margin: 0 auto;">
-      <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
-        <span class="badge" style="margin: 0 auto 1rem auto; display: table;">Donut Chart</span>
-        <h2>Television Proportion by Screen Size Category</h2>
-        <p>Distribution of small, medium, and large television models in the dataset.</p>
+      <div class="card-commentary">
+        <strong>Macro Analysis:</strong> Wholesale electricity pricing remained exceptionally stable across the National Electricity Market (NEM) from 1998 through 2015, before experiencing acute volatility and structural surges in recent years, peaking at an annual average of $144.50 per MWh in 2022.
       </div>
-      <!-- Unique container ID for the donut chart -->
-      <div id="donut-chart" class="responsive-svg-container"></div>
     </div>
 
   </main>
@@ -78,7 +111,7 @@
     <div class="footer-inner">
       <div>
         <div class="footer-brand">Appliance Energy Consumption</div>
-        <p>&copy; <span id="currentYear">2026</span> Voon Joe Quan. All rights reserved. Built for COS30045 Exercise 5.3.</p>
+        <p>&copy; <span id="currentYear">2026</span> Voon Joe Quan. All rights reserved. Built for COS30045 Dashboard Suite.</p>
       </div>
       <div class="genai-box">
         <span class="genai-title">Generative AI Acknowledgement</span>

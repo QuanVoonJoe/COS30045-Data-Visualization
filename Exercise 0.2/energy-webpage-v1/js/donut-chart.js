@@ -3,54 +3,73 @@
 const drawDonutChart = data => {
   const width = 800;
   const height = 450;
-  const radius = Math.min(width, height) / 2 - 40;
+  const radius = Math.min(width, height) / 2 - 25;
 
-  // Create SVG container
   const svg = d3.select("#donut-chart")
     .append("svg")
     .attr("viewBox", `0 0 ${width} ${height}`)
     .style("border", "none");
 
-  // Center the inner group element
   const innerChart = svg
     .append("g")
     .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
-  // Create color scale using D3 scheme
+  const totalCount = d3.sum(data, d => d.Count);
+
+  const colorPalette = ["#D97706", "#F49F1C", "#F6DF8B", "#6E5842"];
   const color = d3.scaleOrdinal()
     .domain(data.map(d => d.Screensize_Category))
-    .range(d3.schemeTableau10); // Professional palette matching your dashboard
+    .range(colorPalette);
 
-  // Calculate slice angles using d3.pie()
   const pie = d3.pie()
     .value(d => d.Count)
-    .sort(null); // Keep original order from CSV
+    .sort(null);
 
-  // Set up Arc generator with inner radius for the donut hole
   const arcGenerator = d3.arc()
-    .innerRadius(radius * 0.55) // 55% inner hole
-    .outerRadius(radius * 0.95)
-    .padAngle(0.03)
-    .cornerRadius(6);
+    .innerRadius(radius * 0.50)
+    .outerRadius(radius * 0.92)
+    .padAngle(0.04)
+    .cornerRadius(8);
 
-  // Set up Arc generator for positioning text labels at the centroid
   const textArc = d3.arc()
-    .innerRadius(radius * 0.75)
-    .outerRadius(radius * 0.75);
+    .innerRadius(radius * 0.71)
+    .outerRadius(radius * 0.71);
 
-  // Draw Arcs
+  // Center Metric (Total Models)
+  innerChart.append("text")
+    .attr("text-anchor", "middle")
+    .attr("dy", "-0.15em")
+    .style("font-family", "Inter, sans-serif")
+    .style("font-size", "26px")
+    .style("font-weight", "900")
+    .style("fill", "#2B2520")
+    .text(totalCount.toLocaleString());
+
+  innerChart.append("text")
+    .attr("text-anchor", "middle")
+    .attr("dy", "1.3em")
+    .style("font-family", "Inter, sans-serif")
+    .style("font-size", "12px")
+    .style("font-weight", "700")
+    .style("fill", "#6E5842")
+    .style("text-transform", "uppercase")
+    .style("letter-spacing", "0.06em")
+    .text("Total Models");
+
   const arcs = innerChart.selectAll(".arc")
     .data(pie(data))
     .join("g")
     .attr("class", "arc");
 
-  arcs.append("path")
-    .attr("d", arcGenerator)
+  const path = arcs.append("path")
     .attr("fill", d => color(d.data.Screensize_Category))
     .attr("stroke", "#FFFFFF")
-    .attr("stroke-width", 2)
+    .attr("stroke-width", 3.5)
     .style("cursor", "pointer")
-    .transition()
+    .style("transition", "filter 0.2s ease, opacity 0.2s ease");
+
+  // Entrance animation
+  path.transition()
     .duration(1000)
     .attrTween("d", function(d) {
       const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
@@ -59,16 +78,31 @@ const drawDonutChart = data => {
       };
     });
 
-  // Add category text labels at slice centroids
+  // Stable, glitch-free hover using CSS filters and opacity instead of geometric resizing
+  path.on("mouseenter", function(event, d) {
+    d3.select(this)
+      .style("filter", "brightness(1.08) drop-shadow(0 6px 12px rgba(0,0,0,0.18))");
+  })
+  .on("mouseleave", function(event, d) {
+    d3.select(this)
+      .style("filter", "none");
+  });
+
+  // Slice labels
   arcs.append("text")
-    .text(d => d.data.Screensize_Category)
+    .text(d => {
+      const percentage = ((d.data.Count / totalCount) * 100).toFixed(1);
+      return `${d.data.Screensize_Category.toUpperCase()} (${percentage}%)`;
+    })
     .attr("transform", d => `translate(${textArc.centroid(d)})`)
     .attr("text-anchor", "middle")
     .attr("dy", "0.35em")
-    .style("font-family", "Inter")
-    .style("font-size", "13px")
-    .style("font-weight", "700")
+    .style("font-family", "Inter, sans-serif")
+    .style("font-size", "12.5px")
+    .style("font-weight", "800")
     .style("fill", "#FFFFFF")
+    .style("text-shadow", "0 1px 4px rgba(0, 0, 0, 0.6)")
+    .style("pointer-events", "none")
     .style("opacity", 0)
     .transition()
     .duration(800)
@@ -76,7 +110,6 @@ const drawDonutChart = data => {
     .style("opacity", 1);
 };
 
-// Load data and parse count as integer
 d3.csv("data/Data_exercise_5.3.csv", d => {
   return {
     Screensize_Category: d.Screensize_Category,
