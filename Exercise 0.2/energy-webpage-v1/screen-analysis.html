@@ -9,15 +9,16 @@
   <!-- 1. LOAD D3 FIRST -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
 
-  <!-- 2. LOAD ALL CHART SCRIPTS -->
+  <!-- 2. LOAD ALL CHART SCRIPTS INCLUDING BRAND CHART -->
   <script defer src="js/bar-chart.js"></script>
   <script defer src="js/line-chart.js"></script>
   <script defer src="js/donut-chart.js"></script>
+  <script defer src="js/brand-chart.js"></script>
   <script defer src="js/scripts.js"></script>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar (Removed obsolete market-data.html link) -->
   <header>
     <div class="navbar">
       <a href="index.html" class="nav-brand" title="Return to Home">
@@ -30,8 +31,8 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="televisions.html">Televisions &amp; Calculator</a></li>
-        <li><a href="market-data.html">Market Data</a></li>
-        <li><a href="screen-analysis.html" class="active">Screen Analysis</a></li>
+        <li><a href="screen-analysis.html" class="active">Screen Analysis &amp; Market Data</a></li>
+        <li><a href="svg-house.html">SVG House</a></li>
         <li><a href="about.html">About Us</a></li>
       </ul>
     </div>
@@ -44,8 +45,8 @@
     <div style="margin-bottom: 3rem; text-align: center; max-width: 750px; margin-left: auto; margin-right: auto;">
       <span class="badge">Executive Analytics Suite</span>
       <h1 style="font-size: 2.5rem; font-weight: 900; color: var(--color-dark); margin-bottom: 0.5rem; letter-spacing: -0.02em;">D3 Charts Dashboard</h1>
-      <p style="font-size: 1.15rem; font-weight: 700; color: var(--color-darkamber); margin-bottom: 0.75rem;">TV Energy Consumption &amp; Market Pricing Intelligence</p>
-      <p style="font-size: 0.95rem; color: var(--color-brown); line-height: 1.6;">Comprehensive telemetry exploring energy draw across display configurations, market size share distribution across Australia, and wholesale spot price volatility.</p>
+      <p style="font-size: 1.15rem; font-weight: 700; color: var(--color-darkamber); margin-bottom: 0.75rem;">TV Energy Consumption, Market Share &amp; Pricing Intelligence</p>
+      <p style="font-size: 0.95rem; color: var(--color-brown); line-height: 1.6;">Comprehensive telemetry exploring energy draw across display configurations, retail brand availability, market size distribution across Australia, and wholesale spot price volatility.</p>
     </div>
 
     <!-- TOP ROW: Two-Column Grid (Bar Chart & Donut Chart) -->
@@ -85,6 +86,23 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- MIDDLE ROW: Full-Width Card (Top 10 TV Brands - Moved from market-data.html) -->
+    <div class="dashboard-card-full">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+        <div>
+          <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--color-dark);">Top 10 TV Brands in Australia</h3>
+          <p style="font-size: 0.85rem; color: var(--color-brown);">Interactive visualization of television model availability sorted by retail volume.</p>
+        </div>
+        <span style="font-size: 0.65rem; font-weight: 700; background: var(--bg-pale); color: var(--color-darkamber); padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid var(--color-yellow);">Scaling Chart</span>
+      </div>
+
+      <div id="brand-bar-chart" class="responsive-svg-container"></div>
+
+      <div class="card-commentary">
+        <strong>Brand Availability Analysis:</strong> Leading market volume is heavily concentrated among top-tier manufacturers, reflecting consumer preferences and retail distribution scale across Australian appliance markets.
+      </div>
     </div>
 
     <!-- BOTTOM ROW: Full-Width Card (Historical Line Chart) -->
