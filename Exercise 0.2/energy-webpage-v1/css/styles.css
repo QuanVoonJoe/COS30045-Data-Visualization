@@ -627,9 +627,36 @@ footer {
   display: block;
 }
 
+/* D3 Interactive Chart Styles */
 .responsive-svg-container {
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
   width: 100%;
-  max-width: 1200px;
+  max-width: 850px; /* Slightly wider for breathing room */
+  padding: 1rem 0;
+}
+
+.bar-rect {
+  fill: var(--color-amber); /* Matches your primary button color */
+  cursor: pointer;
+  transition: fill 0.3s ease, filter 0.3s ease;
+}
+
+.bar-rect:hover {
+  fill: var(--color-darkamber);
+  filter: drop-shadow(0 4px 6px rgba(217, 119, 6, 0.25)); /* Soft shadow on hover */
+}
+
+.bar-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  fill: var(--color-brown);
+  text-transform: capitalize;
+}
+
+.bar-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--color-dark);
 }
