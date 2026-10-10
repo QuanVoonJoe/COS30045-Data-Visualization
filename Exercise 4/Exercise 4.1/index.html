@@ -73,7 +73,7 @@
   </div>
 
   <!-- PART 2: ANNOTATED SCREENSHOTS -->
-  <div class="section-title">Step 2: Coordinate Annotations</div>
+  <div class="section-title">Coordinate Annotations</div>
   <div class="comparison-container">
     
     <!-- BEFORE IMAGE CARD -->
@@ -92,6 +92,72 @@
       </div>
     </div>
 
+  </div>
+
+  <!-- PART 3: COORDINATE TABLE -->
+  <div class="section-title">Coordinate Comparison Table</div>
+  <div class="comparison-container table-wrapper">
+    <table class="coord-table">
+      <thead>
+        <tr>
+          <th>Element</th>
+          <th>Initial Design (Before)</th>
+          <th>Customised Design (After)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sun / Moon</td>
+          <td>cx="400", cy="100", r="40"</td>
+          <td>cx="420", cy="80", r="35" (Moved right, changed color)</td>
+        </tr>
+        <tr>
+          <td>House Wall</td>
+          <td>x="150", y="180"</td>
+          <td>x="180", y="160" (Shifted right and up)</td>
+        </tr>
+        <tr>
+          <td>House Roof</td>
+          <td>points="130,180 240,100 350,180"</td>
+          <td>points="160,160 260,70 360,160" (Adjusted to new wall position)</td>
+        </tr>
+        <tr>
+          <td>Door</td>
+          <td>x="210", y="240"</td>
+          <td>x="240", y="230" (Shifted to match wall)</td>
+        </tr>
+        <tr>
+          <td>Doorknob</td>
+          <td>cx="238", cy="275"</td>
+          <td>cx="272", cy="265"</td>
+        </tr>
+        <tr>
+          <td>Windows (Group Transform)</td>
+          <td>translate(170, 200) & translate(280, 200)</td>
+          <td>translate(195, 185) & translate(290, 185)</td>
+        </tr>
+        <tr>
+          <td>Tree Leaves / Top</td>
+          <td>Circles: cx="60", cy="220" / cx="100", cy="220" / cx="80", cy="190"</td>
+          <td>Polygons: points="40,260 90,160 140,260" ... (Changed to pine tree)</td>
+        </tr>
+        <tr>
+          <td>Path</td>
+          <td>d="M 225 300 Q 180 400 250 500" ...</td>
+          <td>d="M 260 300 Q 320 400 230 500" (Merged to single thicker path)</td>
+        </tr>
+        <tr>
+          <td>Pond</td>
+          <td>N/A</td>
+          <td>cx="400", cy="380", rx="70", ry="25" (Added element)</td>
+        </tr>
+        <tr>
+          <td>Stars</td>
+          <td>N/A</td>
+          <td>cx="100,50", cx="250,90", cx="380,40" (Added elements)</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 </body>
