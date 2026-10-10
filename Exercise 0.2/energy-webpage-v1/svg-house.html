@@ -5,111 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Appliance Energy Consumption - SVG Customisation Suite</title>
   <link rel="stylesheet" href="css/styles.css">
-  
-  <!-- Custom professional styling for the SVG showcase -->
-  <style>
-    .svg-section-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--color-dark);
-      margin: 3.5rem 0 1.5rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .svg-section-title::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: var(--color-border);
-    }
-    .svg-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-    }
-    @media (max-width: 850px) {
-      .svg-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    .svg-card {
-      background: #FFFFFF;
-      border: 1px solid var(--color-border);
-      border-radius: 18px;
-      padding: 2rem;
-      box-shadow: 0 4px 15px rgba(43, 37, 32, 0.03);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .svg-card:hover {
-      border-color: var(--color-amber);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(217, 119, 6, 0.08);
-    }
-    .svg-card h3 {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--color-dark);
-      margin-bottom: 0.35rem;
-    }
-    .svg-card p {
-      font-size: 0.85rem;
-      color: var(--color-brown);
-      margin-bottom: 1.25rem;
-    }
-    .svg-media-wrapper {
-      width: 100%;
-      background: #FAF4E4;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .svg-media-wrapper svg,
-    .svg-media-wrapper img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .coord-table-card {
-      background: #FFFFFF;
-      border: 1px solid var(--color-border);
-      border-radius: 18px;
-      padding: 2rem;
-      box-shadow: 0 4px 15px rgba(43, 37, 32, 0.03);
-      overflow-x: auto;
-      margin-bottom: 4rem;
-    }
-    .coord-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-    }
-    .coord-table th, .coord-table td {
-      padding: 0.95rem 1.2rem;
-      text-align: left;
-      border-bottom: 1px solid #f0ede6;
-    }
-    .coord-table thead th {
-      background: var(--bg-pale);
-      color: var(--color-dark);
-      font-weight: 800;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-    }
-    .coord-table tbody tr {
-      transition: background-color 0.2s ease;
-    }
-    .coord-table tbody tr:hover {
-      background-color: rgba(250, 244, 228, 0.5);
-    }
-  </style>
 </head>
 <body>
 
@@ -126,7 +21,6 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="televisions.html">Televisions &amp; Calculator</a></li>
-        <li><a href="market-data.html">Market Data</a></li>
         <li><a href="svg-house.html" class="active">SVG House</a></li>
         <li><a href="screen-analysis.html">Screen Analysis</a></li>
         <li><a href="about.html">About Us</a></li>
@@ -138,11 +32,11 @@
   <main class="container" style="padding-top: 3.5rem;">
     
     <!-- Page Header -->
-    <div style="margin-bottom: 3rem; text-align: center; max-width: 750px; margin-left: auto; margin-right: auto;">
+    <div class="dashboard-header-wrapper">
       <span class="badge">Vector Graphics</span>
-      <h1 style="font-size: 2.5rem; font-weight: 900; color: var(--color-dark); margin-bottom: 0.5rem; letter-spacing: -0.02em;">SVG Customisation Suite</h1>
-      <p style="font-size: 1.15rem; font-weight: 700; color: var(--color-darkamber); margin-bottom: 0.75rem;">Primitive Mapping &amp; Nocturnal Scene Transformation</p>
-      <p style="font-size: 0.95rem; color: var(--color-brown); line-height: 1.6;">Technical side-by-side evaluation of standard SVG geometric primitives versus an advanced custom nocturnal cabin scene featuring multi-layered coordinates and custom paths.</p>
+      <h1 class="dashboard-title">SVG Customisation Suite</h1>
+      <p class="dashboard-subtitle">Primitive Mapping &amp; Nocturnal Scene Transformation</p>
+      <p class="dashboard-desc">Technical side-by-side evaluation of standard SVG geometric primitives versus an advanced custom nocturnal cabin scene featuring multi-layered coordinates and custom paths.</p>
     </div>
 
     <!-- PART 1: LIVE SVGs -->
