@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appliance Energy Consumption - Exercise 6.1 Histogram</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="nav-brand" title="Return to Home">
+        <img src="images/PowerIcon.png" alt="Power Logo" class="brand-logo">
+        <div class="brand-text">
+          <span class="title">Appliance<span>Watt</span></span>
+          <span class="subtitle">AU Energy Efficiency Guide</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="televisions.html">Televisions &amp; Calculator</a></li>
+        <li><a href="screen-analysis.html">Data Analysis</a></li>
+        <li><a href="svg-house.html">SVG House</a></li>
+        <li><a href="histogram.html" class="active">Energy Analytics</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="container">
+    
+    <!-- Dashboard Header Section -->
+    <div class="dashboard-header-wrapper">
+      <span class="badge">Interactive Data Lab</span>
+      <h1 class="dashboard-title">TV Energy Distribution</h1>
+      <p class="dashboard-subtitle">Energy Consumption for different TV screen types and sizes</p>
+      <p class="dashboard-desc">TVs vary considerably in energy consumption. This frequency histogram analyzes nearly four thousand data points across the dataset.</p>
+    </div>
+
+    <!-- Chart Card 1: Histogram -->
+    <div class="dashboard-card-full" style="max-width: 950px; margin: 0 auto 2rem; padding: 2rem;">
+      <div class="card-top-row">
+        <div>
+          <h3 class="card-heading" style="font-size: 1.15rem;">Frequency vs Labeled Energy Consumption</h3>
+          <p class="card-subtext">Distribution of energy draw (kWh/year) for household television models.</p>
+        </div>
+        <span class="card-badge-pill">Histogram</span>
+      </div>
+
+      <!-- Filters UI container -->
+      <div id="filters_screen" style="margin: 1.25rem 0; display: flex; gap: 0.5rem;"></div>
+
+      <div id="histogram" class="responsive-svg-container"></div>
+
+      <div class="card-commentary">
+        <strong>Data Source &amp; Telemetry:</strong><br>
+        <a href="https://data.gov.au/data/dataset/energy-rating-for-household-appliances" target="_blank" style="color: var(--color-darkamber); text-decoration: none; font-weight: 600;">
+          Energy Rating Data for household appliances – Televisions
+        </a><br>
+        Downloaded Jan 2026
+      </div>
+    </div>
+
+    <!-- Chart Card 2: Scatterplot -->
+    <div class="dashboard-card-full" style="max-width: 950px; margin: 0 auto; padding: 2rem;">
+      <div class="card-top-row">
+        <div>
+          <h3 class="card-heading" style="font-size: 1.15rem;">Energy Consumption vs Star Rating</h3>
+          <p class="card-subtext">Scatterplot distribution colored by television screen technology.</p>
+        </div>
+        <span class="card-badge-pill">Scatterplot</span>
+      </div>
+
+      <div id="scatterplot" class="responsive-svg-container"></div>
+
+      <div class="card-commentary">
+        <strong>Key Takeaway &amp; Interpretation:</strong><br>
+        The scatterplot demonstrates a clear inverse correlation: television models with higher star ratings (e.g., 6 to 8 stars) consistently record significantly lower annual energy consumption, validating the effectiveness of Australia's energy efficiency standards.
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Appliance Energy Consumption</div>
+        <p>&copy; <span id="currentYear">2026</span> Voon Joe Quan. All rights reserved. Built for Demonstration 2.</p>
+      </div>
+      <div class="genai-box">
+        <span class="genai-title">Generative AI Acknowledgement</span>
+        <p>Scaffolded using Gemini for semantic HTML markup, D3 histogram binning architecture, and accessible DOM control.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/shared-constants.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/histogram.js"></script>
+  <script src="js/scatterplot.js"></script>   
+  <script src="js/load-data.js"></script>    
+  <script src="js/scripts.js"></script>
+
+</body>
+</html>
